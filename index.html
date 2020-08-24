@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>HeartBeat - With HTML CSS and JS | Made By Sagar</title>
+    </head>
+  
+  <style>
+   *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box; 
+   }
+   
+   header{
+       height:100vh;
+       width:100%;
+       background:#000;
+       flex-direction:column;
+       flex-wrap:wrap;
+       display: flex;
+       align-items:center;
+       justify-content:center;
+   }
+ header h2{
+     color:#FF0042;
+     font-family: fantasy;
+     text-align:center;
+     padding:0vh 5vw 10vh 5vw;
+ }  
+   .heart{
+       height:50px;
+       width:50px;
+       background:red;
+       position:relative;
+       transform:rotate(45deg);
+       box-shadow:0px 0px 3px #333333;
+       animation:hbeat 1s ease infinite;
+       margin:5vh 0vh;
+   }
+   .heart::before{
+          content:'';
+          height:50px;
+          width:50px;
+          position:absolute;
+          background:red;
+          border-radius:50%;
+          transform:translateY(-50%);
+   }
+   .heart::after{
+       content:'';        
+       height:50px;
+       width:50px;
+       position:absolute;
+       background:red;
+       border-radius:50%;
+       transform:translateX(-50%);
+   }
+   
+   @keyframes hbeat{
+       0%{
+        transform:scale(1) rotate(45deg);   
+       }
+       20%{
+          transform:scale(1) rotate(45deg); 
+       }
+       40%{
+          transform:scale(1.4) rotate(45deg); 
+       }
+       60%{
+          transform:scale(1.2) rotate(45deg); 
+       }
+       80%{
+          transform:scale(1.4) rotate(45deg); 
+       }
+       100%{
+          transform:scale(1) rotate(45deg); 
+       }
+   }
+   
+   #heart_line_img{
+       height:30vh;
+       width:70%;
+   }
+   
+   
+#btn_div{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    width:50%;
+}
+#btn_div button{
+    background:blue;
+    padding:5px 15px;
+    color:#fff;
+    border:none;
+    outline:none;
+    font-family: monospace;
+}
+  </style>
+  
+  
+    <body>
+       
+       <header>
+           <h2>Click Play Button ! To feel heartbeat</h2>
+           <main class="heart">
+                
+           </main>
+           
+           <img src="heart_line.gif" alt="heart_line" id="heart_line_img" />
+           
+        <div id="btn_div">
+           <button onclick="playmusic();">Play</button>
+           
+           <button onclick="pausemusic();">Pause</button>
+        </div> 
+      
+      
+       </header>
+    
+     <script>
+      
+       alert("Use Headphone for better Experience");
+      
+       let audio=new Audio("heartbeat.mp3");
+      
+       function playmusic(){
+           audio.play();
+       };
+       function pausemusic(){
+           audio.pause();
+       };
+       
+     </script>
+     
+    </body>
+</html>
